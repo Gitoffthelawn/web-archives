@@ -436,6 +436,11 @@
     "description": "Value of the option."
   },
 
+  "optionSectionTitle_sponsors": {
+    "message": "Sponsors",
+    "description": "Title of the options section."
+  },
+
   "inputPlaceholder_docUrl": {
     "message": "Page URL",
     "description": "Placeholder of the input."

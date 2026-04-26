@@ -18,6 +18,10 @@ const __dirname = import.meta.dirname;
 
 const jsonMerge = require('gulp-merge-json');
 
+const {
+  default: {version: appVersion}
+} = await import('./package.json', {with: {type: 'json'}});
+
 const targetEnv = process.env.TARGET_ENV || 'chrome';
 const isProduction = process.env.NODE_ENV === 'production';
 const enableContributions =
@@ -40,7 +44,7 @@ async function init() {
 
 function js(done) {
   exec(
-    `webpack-cli build --color --env mv3=${mv3}`,
+    `webpack-cli build --color --env appVersion=${appVersion} --env mv3=${mv3}`,
     function (err, stdout, stderr) {
       console.log(stdout);
       console.log(stderr);
@@ -52,7 +56,7 @@ function js(done) {
 function html() {
   const htmlSrc = ['src/**/*.html'];
 
-  if (mv3 && !['safari'].includes(targetEnv)) {
+  if (mv3 && !['firefox', 'safari'].includes(targetEnv)) {
     htmlSrc.push('!src/background/*.html');
   }
 
@@ -119,7 +123,7 @@ async function images(done) {
   }
 
   await new Promise(resolve => {
-    src('src/assets/icons/@(app|engines|misc)/*.@(png|svg)', {
+    src('src/assets/icons/@(app|engines|misc|sponsors)/*.@(png|svg)', {
       base: '.',
       encoding: false
     })
@@ -214,7 +218,7 @@ function manifest() {
       jsonMerge({
         fileName: 'manifest.json',
         edit: (parsedJson, file) => {
-          parsedJson.version = require('./package.json').version;
+          parsedJson.version = appVersion;
           return parsedJson;
         }
       })

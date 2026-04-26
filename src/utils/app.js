@@ -27,7 +27,9 @@ import {
   rasterEngineIcons,
   engineIconAlias,
   engineIconVariants,
-  supportUrl
+  sponsorLogoVariants,
+  supportUrl,
+  sponsorSites
 } from 'utils/data';
 
 async function getEnabledEngines(options) {
@@ -377,6 +379,14 @@ async function showSupportPage({getTab = false, activeTab = null} = {}) {
   return showPage({url: supportUrl, getTab, activeTab});
 }
 
+async function showSponsorPage({
+  name = '',
+  getTab = false,
+  activeTab = null
+} = {}) {
+  return showPage({url: getSponsorUrl(name), getTab, activeTab});
+}
+
 function getEngineIcon(engine, {variant = ''} = {}) {
   engine = engineIconAlias[engine] || engine;
 
@@ -529,6 +539,18 @@ function getEngineMenuIcon(engine, {variant = ''} = {}) {
       16: `src/assets/icons/engines/${name}.svg`
     };
   }
+}
+
+function getSponsorUrl(name) {
+  return sponsorSites[name];
+}
+
+function getSponsorLogo(name, {variant = ''} = {}) {
+  if (variant && sponsorLogoVariants[name]?.includes(variant)) {
+    name += `-${variant}`;
+  }
+
+  return `/src/assets/icons/sponsors/${name}.svg`;
 }
 
 function handleActionEscapeKey() {
@@ -743,6 +765,7 @@ export {
   showContributePage,
   showOptionsPage,
   showSupportPage,
+  showSponsorPage,
   setAppVersion,
   isSessionStartup,
   isStartup,
@@ -750,6 +773,8 @@ export {
   getNetRequestRuleIds,
   getEngineIcon,
   getEngineMenuIcon,
+  getSponsorUrl,
+  getSponsorLogo,
   handleActionEscapeKey,
   isContextMenuSupported,
   checkSearchEngineAccess,

@@ -341,7 +341,7 @@ export default {
     },
 
     showContribute: async function () {
-      await showContributePage();
+      await showContributePage({action: true});
       this.closeAction();
     },
 

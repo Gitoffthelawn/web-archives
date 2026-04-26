@@ -70,6 +70,8 @@ const engineIconVariants = {
   webcite: ['dark']
 };
 
+const sponsorLogoVariants = {};
+
 const rasterEngineIcons = ['ghostarchive'];
 
 // prettier-ignore
@@ -154,12 +156,17 @@ const chromeMobileUA =
 
 const supportUrl = 'https://github.com/dessant/web-archives/issues';
 
+const sponsors = [];
+
+const sponsorSites = {};
+
 export {
   optionKeys,
   engines,
   rasterEngineIcons,
   engineIconAlias,
   engineIconVariants,
+  sponsorLogoVariants,
   errorCodes,
   archiveOrgHosts,
   archiveIsHosts,
@@ -168,5 +175,7 @@ export {
   linkArchiveUrlRx,
   chromeDesktopUA,
   chromeMobileUA,
-  supportUrl
+  supportUrl,
+  sponsors,
+  sponsorSites
 };

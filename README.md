@@ -34,9 +34,9 @@
 Web Archives is an open source project made possible thanks to a community
 of awesome supporters. If you'd like to support the continued development
 of the extension, please consider contributing with
-[Patreon](https://armin.dev/go/patreon?pr=web-archives&src=repo),
-[PayPal](https://armin.dev/go/paypal?pr=web-archives&src=repo) or
-[Bitcoin](https://armin.dev/go/bitcoin?pr=web-archives&src=repo).
+[Patreon](https://go.vapps.dev/patreon?pr=web-archives&src=repo),
+[PayPal](https://go.vapps.dev/paypal?pr=web-archives&src=repo) or
+[Bitcoin](https://go.vapps.dev/bitcoin?pr=web-archives&src=repo).
 
 ## Description
 
